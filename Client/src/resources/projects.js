@@ -12,7 +12,6 @@ export const projects = [
   },
   {
     technologies: [],
-
     title: "E-Commerce Web-Application",
     image: ecommerceImage,
     description:

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import SectionTitel from "../../components/Header/SectionTitel";
-import { certificates } from "../../resources/certificates";
+// import { certificates } from "../../resources/certificates";
+import { useSelector } from "react-redux";
 
 function Certificates() {
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+  const { portfolioData } = useSelector((state) => state.root);
+  const { certificates } = portfolioData;
 
   return (
     <div>

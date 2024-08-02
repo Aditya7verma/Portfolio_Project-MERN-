@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionTitel from "../../components/Header/SectionTitel";
-import { experiences } from "../../resources/experiences";
+import { useSelector } from "react-redux";
 
 function Experiences() {
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+  const { portfolioData } = useSelector((state) => state.root);
+  const { experiences } = portfolioData;
+
   return (
     <div>
       <SectionTitel title="Experience" />
@@ -13,10 +16,12 @@ function Experiences() {
 
         <div className="flex flex-col gap-10 border-l-2 border-[#135e4c82] w-1/3 sm:flex-row sm:overflow-x-scroll sm:w-full">
           {experiences.map((experience, index) => (
-            <div onClick={() => {
+            <div
+              onClick={() => {
                 setSelectedItemIndex(index);
               }}
-              className="cursor-pointer">
+              className="cursor-pointer"
+            >
               <h1
                 className={`text-xl px-10 ${
                   selectedItemIndex === index
@@ -32,9 +37,15 @@ function Experiences() {
 
         {/* displaying the content of those periods */}
         <div className="flex flex-col gap-5">
-            <h1 className="text-secondary text-xl">{experiences[selectedItemIndex].title}</h1>
-            <h1 className="text-tertiary text-xl">{experiences[selectedItemIndex].company}</h1>
-            <p className="text-white">{experiences[selectedItemIndex].description}</p>
+          <h1 className="text-secondary text-xl">
+            {experiences[selectedItemIndex].title}
+          </h1>
+          <h1 className="text-tertiary text-xl">
+            {experiences[selectedItemIndex].company}
+          </h1>
+          <p className="text-white">
+            {experiences[selectedItemIndex].description}
+          </p>
         </div>
       </div>
     </div>

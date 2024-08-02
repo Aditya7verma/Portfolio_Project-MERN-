@@ -1,16 +1,22 @@
 import React from "react";
 import SectionTitel from "../../components/Header/SectionTitel";
+import { useSelector } from "react-redux";
 
 const About = () => {
-  const skills = [
-    "Java",
-    "JavaScript",
-    "React",
-    "Node",
-    "Express",
-    "MongoDB",
-    "JQuery",
-  ];
+  // const skills = [
+  //   "Java",
+  //   "JavaScript",
+  //   "React",
+  //   "Node",
+  //   "Express",
+  //   "MongoDB",
+  //   "JQuery",
+  // ];
+
+  const { loading, portfolioData } = useSelector((state) => state.root);
+
+  const { about } = portfolioData;
+  const { skills, lottieURL, description1, description2 } = about;
   return (
     <div>
       <SectionTitel title="About" />
@@ -18,7 +24,7 @@ const About = () => {
       <div className="flex w-full items-center sm:flex-col">
         <div className="h-[60vh] w-1/2 sm:w-full">
           <lottie-player
-            src="https://lottie.host/28d5519b-a3d8-4ad7-984d-8407e26ff0b3/0VdSxMQsk2.json"
+            src={lottieURL}
             background="transparent"
             speed="1"
             // style="width: 300px; height: 300px"
@@ -29,19 +35,8 @@ const About = () => {
           ></lottie-player>
         </div>
         <div className="flex flex-col gap-5 w-1/2 sm:w-full">
-          <p className="text-white">
-            Hello! My name is Aditya Verma . I enjoy creating things that live
-            on the Inernet. My intrest in web devlopment started back in
-            college, when I decided to try making an TODO-list app using HTML,
-            CSS, Js.
-          </p>
-          <p className="text-white">
-            Fast-forward to today, and I'm Aspiring Full Stack Developer with a
-            strong foundation in Java, JavaScript. Proficient in modern web
-            development technologies, including HTML, CSS, React, Node.js,
-            Express, and MongoDB. Passionate about building efficient, scalable,
-            and user-friendly web applications.
-          </p>
+          <p className="text-white">{description1 || ""}</p>
+          <p className="text-white">{description2 || ""}</p>
         </div>
       </div>
 
