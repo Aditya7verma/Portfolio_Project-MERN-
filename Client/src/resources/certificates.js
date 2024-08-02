@@ -1,10 +1,10 @@
-import javaImage from "../../../Images/Java.png";
-import mernImage from "../../../Images/mern.png";
+// import javaImage from "../../../Images/Java.png";
+// import mernImage from "../../../Images/mern.png";
 
 export const certificates = [
   {
     title: "Full Stack Web Development with NodeJS Master Course",
-    image: mernImage,
+    image: "https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png",
     duration: "8 Months",
     //    template literals (backticks) ``
     description: `
@@ -23,7 +23,8 @@ export const certificates = [
   },
   {
     title: "Java Master Course",
-    image: javaImage,
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
     duration: "8 Months",
     description: `
         This course is designed to provide a comprehensive understanding of Java programming.

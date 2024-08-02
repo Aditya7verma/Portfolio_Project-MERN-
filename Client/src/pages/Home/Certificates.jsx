@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionTitel from "../../components/Header/SectionTitel";
 // import { certificates } from "../../resources/certificates";
 import { useSelector } from "react-redux";
@@ -42,7 +42,9 @@ function Certificates() {
             <h1 className="text-secondary text-xl">
               {certificates[selectedItemIndex].title}
             </h1>
-            <h1 className="text-secondary text-xl">{certificates[selectedItemIndex].duration}</h1>
+            <h1 className="text-secondary text-xl">
+              {certificates[selectedItemIndex].duration}
+            </h1>
 
             <p className="text-white">
               {certificates[selectedItemIndex].description}

@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionTitel from "../../components/Header/SectionTitel";
-import { projects } from "../../resources/projects";
+// import { projects } from "../../resources/projects";
+import { useSelector } from "react-redux";
 
 function Projects() {
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+  const { portfolioData } = useSelector((state) => state.root);
+  const { projects } = portfolioData;
 
   return (
     <div>
@@ -35,27 +38,31 @@ function Projects() {
 
         {/* displaying the content of those projects title */}
         <div className="flex items-center justify-center gap-10 sm:flex-col">
-        <img src={projects[selectedItemIndex].image} alt="" className="h-60 w-72" />
-        <div className="flex flex-col gap-5">
-          <h1 className="text-secondary text-xl">
-            {projects[selectedItemIndex].title}
-          </h1>
+          <img
+            src={projects[selectedItemIndex].image}
+            alt=""
+            className="h-60 w-72"
+          />
+          <div className="flex flex-col gap-5">
+            <h1 className="text-secondary text-xl">
+              {projects[selectedItemIndex].title}
+            </h1>
 
-          <p className="text-white">
-            {projects[selectedItemIndex].description}
-          </p>
-          <p className="text-white">
-            ShopEase is a full-stack e-commerce platform featuring user
-            authentication, product catalog, shopping cart, and secure checkout
-            with payment integration. Built with React.js, Node.js, Express, and
-            MongoDB, it includes user profiles, admin panel, and responsive
-            design. The project demonstrates proficiency in modern web
-            development, overcoming challenges in inventory management, data
-            security, and performance optimization. ShopEase showcases the
-            ability to create a secure, efficient, and user-friendly online
-            shopping solution
-          </p>
-        </div>
+            <p className="text-white">
+              {projects[selectedItemIndex].description}
+            </p>
+            <p className="text-white">
+              ShopEase is a full-stack e-commerce platform featuring user
+              authentication, product catalog, shopping cart, and secure
+              checkout with payment integration. Built with React.js, Node.js,
+              Express, and MongoDB, it includes user profiles, admin panel, and
+              responsive design. The project demonstrates proficiency in modern
+              web development, overcoming challenges in inventory management,
+              data security, and performance optimization. ShopEase showcases
+              the ability to create a secure, efficient, and user-friendly
+              online shopping solution
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -63,4 +70,3 @@ function Projects() {
 }
 
 export default Projects;
-
